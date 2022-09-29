@@ -19,14 +19,14 @@ function treeFactory(array) {
   }
 }
 
-
 //Write a buildTree function which takes an array of data (e.g. [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]) and turns it into a balanced binary tree full of Node objects appropriately placed (don’t forget to sort and remove duplicates!). The buildTree function should return the level-0 root node.
 function buildTree(array, start, end) {
   //base case
   if (start > end) return null;
 
   let mid = (start + end) / 2;
-  let root = nodeFactory(array[mid])
+  
+  let root = nodeFactory(array[Math.round(mid)])
 
   root.left = buildTree(array, start, mid - 1)
   root.right = buildTree(array, mid + 1, end)
@@ -55,5 +55,5 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
   }
 }
 
-let testTree1 = treeFactory([1,2,3,4,5,6,7])
+let testTree1 = treeFactory([1,2,3,4,5,6,7,8,9])
 let testTree2 = treeFactory([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
