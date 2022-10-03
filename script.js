@@ -10,6 +10,7 @@ function nodeFactory(data, left, right) {
 //Build a Tree class / factory which accepts an array when initialized. The Tree class should have a root attribute which uses the return value of buildTree which you’ll write next.
 function treeFactory(array) {
   let formattedArray = formatArray(array);
+  console.log(formattedArray)
   let end = formattedArray.length - 1;
   let root = buildTree(formattedArray, 0, end);
 
@@ -24,9 +25,9 @@ function buildTree(array, start, end) {
   //base case
   if (start > end) return null;
 
-  let mid = (start + end) / 2;
+  let mid = parseInt((start + end) / 2);
   
-  let root = nodeFactory(array[Math.round(mid)])
+  let root = nodeFactory(array[mid])
 
   root.left = buildTree(array, start, mid - 1)
   root.right = buildTree(array, mid + 1, end)
